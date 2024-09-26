@@ -5,5 +5,4 @@
 - So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
 
 # Credits
-
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
