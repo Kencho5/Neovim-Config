@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "tailwindcss", "vtsls" }
+local servers = { "html", "cssls", "tailwindcss", "eslint" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -26,6 +26,32 @@ lspconfig.rust_analyzer.setup {
       },
     },
   },
+}
+
+lspconfig.vtsls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    vtsls = {
+      typescript = {
+        diagnostics = {
+          enable = false,
+        },
+        preferences = {
+          includePackageJsonAutoImports = "off",
+          autoImportFileExcludePatterns = { ".git", "node_modules" },
+        },
+      },
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+          entriesLimit = 10,
+        },
+      },
+    },
+  },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 }
 
 lspconfig.pyright.setup {
