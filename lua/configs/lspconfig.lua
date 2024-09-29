@@ -60,7 +60,7 @@ lspconfig.pyright.setup {
   filetypes = { "python" },
   settings = {
     python = {
-      analysis = { diagnosticMode = "off", typeCheckingMode = "off" },
+      -- analysis = { diagnosticMode = "off", typeCheckingMode = "off" },
     },
   },
 }

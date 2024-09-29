@@ -107,4 +107,10 @@ M.ui = {
   },
 }
 
+M.options = {
+  terminal = {
+    shell = "/bin/zsh",
+  },
+}
+
 return M
