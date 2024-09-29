@@ -3,8 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
--- EXAMPLE
-local servers = { "html", "cssls", "tailwindcss" }
+local servers = { "html", "cssls", "tailwindcss", "vtsls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -50,13 +49,9 @@ lspconfig.lua_ls.setup {
   },
 }
 
-local typescript_tools = require "typescript-tools"
-
-typescript_tools.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  -- settings = {
-  --   separate_diagnostic_server = true,
-  --   publish_diagnostic_on = "insert_leave",
-  -- },
-}
+-- local cmp = require "cmp"
+-- cmp.setup {
+--   experimental = {
+--     ghost_text = true,
+--   },
+-- }

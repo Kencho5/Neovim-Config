@@ -67,9 +67,38 @@ return {
       require("import-cost").setup()
     end,
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
+
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --
+  --     {
+  --       "supermaven-inc/supermaven-nvim",
+  --       opts = {},
+  --     },
+  --
+  --     {
+  --       "hrsh7th/cmp-cmdline",
+  --       event = "CmdlineEnter",
+  --       config = function()
+  --         local cmp = require "cmp"
+  --
+  --         cmp.setup.cmdline("/", {
+  --           mapping = cmp.mapping.preset.cmdline(),
+  --           sources = { { name = "buffer" } },
+  --         })
+  --
+  --         cmp.setup.cmdline(":", {
+  --           mapping = cmp.mapping.preset.cmdline(),
+  --           sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+  --           matching = { disallow_symbol_nonprefix_matching = false },
+  --         })
+  --       end,
+  --     },
+  --   },
+  --
+  --   opts = function(_, opts)
+  --     table.insert(opts.sources, 1, { name = "supermaven" })
+  --   end,
+  -- },
 }
