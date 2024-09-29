@@ -59,4 +59,17 @@ return {
       require("nvim-ts-autotag").setup()
     end,
   },
+  {
+    "barrett-ruth/import-cost.nvim",
+    ft = "javascript,javascriptreact,typescript,typescriptreact",
+    build = "sh install.sh yarn",
+    config = function()
+      require("import-cost").setup()
+    end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
 }
