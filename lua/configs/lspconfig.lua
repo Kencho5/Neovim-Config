@@ -46,7 +46,7 @@ lspconfig.vtsls.setup {
       experimental = {
         completion = {
           enableServerSideFuzzyMatch = true,
-          entriesLimit = 10,
+          entriesLimit = 50,
         },
       },
     },
@@ -75,9 +75,9 @@ lspconfig.lua_ls.setup {
   },
 }
 
--- local cmp = require "cmp"
--- cmp.setup {
---   experimental = {
---     ghost_text = true,
---   },
--- }
+local cmp = require "cmp"
+cmp.setup {
+  experimental = {
+    ghost_text = true,
+  },
+}
