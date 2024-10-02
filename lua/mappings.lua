@@ -17,20 +17,7 @@ map(
 
 -- TERM
 map({ "n", "t" }, "<C-t>", function()
-  require("nvchad.term").toggle {
-    -- pos = "sp",
-    pos = "float",
-    id = "floatTerm",
-
-    float_opts = {
-      relative = "editor",
-      row = 0.15,
-      col = 0.15,
-      width = 0.7,
-      height = 0.6,
-      border = "single",
-    },
-  }
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Toggle Floating Terminal" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
