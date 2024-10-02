@@ -67,6 +67,8 @@ return {
       require("import-cost").setup()
     end,
   },
+  { "nvchad/volt", lazy = true },
+  { "nvchad/menu", lazy = true },
 
   -- {
   --   "hrsh7th/nvim-cmp",
