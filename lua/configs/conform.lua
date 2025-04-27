@@ -6,7 +6,7 @@ local options = {
     typescript = { "prettierd" },
     json = { "prettierd" },
     typescriptreact = { "prettierd" },
-    python = { "black" },
+    python = { "ruff" },
   },
   format_on_save = {
     timeout_ms = 500,
@@ -14,6 +14,8 @@ local options = {
   },
   ensure_installed = {
     "rust-analyzer",
+    "pyright",
+    "black",
   },
 }
 
