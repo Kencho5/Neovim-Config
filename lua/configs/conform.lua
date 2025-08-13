@@ -6,7 +6,6 @@ local options = {
     typescript = { "prettierd" },
     json = { "prettierd" },
     typescriptreact = { "prettierd" },
-    python = { "ruff" },
   },
   format_on_save = {
     timeout_ms = 500,
