@@ -1,0 +1,7 @@
+Neovim v0.10.1
+Downloaded from: https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-macos-arm64.tar.gz
+Installed at: ~/.local/nvim-0.10.1/
+Symlink at: ~/.local/bin/nvim
+
+This version is confirmed working with the plugin versions in lazy-lock.json.
+To restore this exact setup, use the corresponding git commit.
