@@ -14,7 +14,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "html", "css", "typescript", "tsx", "lua", "javascript", "rust", "cpp", "c" },
+      ensure_installed = { "html", "css", "typescript", "tsx", "lua", "javascript", "rust", "cpp", "c", "dockerfile", "sql" },
     },
   },
   {
@@ -26,6 +26,7 @@ return {
       vim.g.matchup_override_vimtex = 1 -- Default behavior
       vim.g.matchup_surround_enabled = 0 -- Disable enhanced surround matching
       vim.g.matchup_matchparen_offscreen = {} -- Disable offscreen tag display
+      vim.g.matchup_transmute_enabled = 0 -- Disable treesitter integration to prevent errors with missing parsers
     end,
   },
 
