@@ -1,22 +1,47 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
-local servers = { "html", "cssls", "tailwindcss", "eslint", "clangd" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
+-- Custom on_attach to disable document highlighting
+local custom_on_attach = function(client, bufnr)
+  -- Call the default NvChad on_attach
+  nvlsp.on_attach(client, bufnr)
+
+  -- Disable document highlighting (underline on references)
+  if client.server_capabilities.documentHighlightProvider then
+    client.server_capabilities.documentHighlightProvider = false
+  end
 end
 
-lspconfig.rust_analyzer.setup {
-  on_attach = nvlsp.on_attach,
+-- Configure HTML with semantic tokens enabled
+vim.lsp.config("html", {
+  on_attach = custom_on_attach,
+  on_init = function(client, _)
+    -- Keep semantic tokens enabled for HTML
+  end,
+  capabilities = nvlsp.capabilities,
+})
+vim.lsp.enable("html")
+
+-- lsps with default config (excluding html which we configured above)
+for _, lsp in ipairs({ "cssls", "tailwindcss", "eslint", "clangd" }) do
+  vim.lsp.config(lsp, {
+    on_attach = custom_on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+  })
+  vim.lsp.enable(lsp)
+end
+
+vim.lsp.config("rust_analyzer", {
+  on_attach = custom_on_attach,
+  on_init = function(client, _)
+    -- Enable semantic tokens for rust-analyzer
+    if client:supports_method "textDocument/semanticTokens" then
+      client.server_capabilities.semanticTokensProvider = client.server_capabilities.semanticTokensProvider
+    end
+  end,
   capabilities = nvlsp.capabilities,
   filetypes = { "rust" },
   settings = {
@@ -26,10 +51,11 @@ lspconfig.rust_analyzer.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable("rust_analyzer")
 
-lspconfig.vtsls.setup {
-  on_attach = nvlsp.on_attach,
+vim.lsp.config("vtsls", {
+  on_attach = custom_on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   settings = {
@@ -52,15 +78,17 @@ lspconfig.vtsls.setup {
     },
   },
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-}
+})
+vim.lsp.enable("vtsls")
 
-lspconfig.pyright.setup {
-  on_attach = nvlsp.on_attach,
+vim.lsp.config("pyright", {
+  on_attach = custom_on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "python" },
-}
+})
+vim.lsp.enable("pyright")
 
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
@@ -68,7 +96,8 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable("lua_ls")
 
 -- local cmp = require "cmp"
 -- cmp.setup {

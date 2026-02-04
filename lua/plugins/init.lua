@@ -14,7 +14,19 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "html", "css", "typescript", "tsx", "lua", "javascript", "rust", "cpp", "c", "dockerfile", "sql" },
+      ensure_installed = {
+        "html",
+        "css",
+        "typescript",
+        "tsx",
+        "lua",
+        "javascript",
+        "rust",
+        "cpp",
+        "c",
+        "dockerfile",
+        "sql",
+      },
     },
   },
   {
@@ -68,14 +80,6 @@ return {
     },
     config = function()
       require("nvim-ts-autotag").setup()
-    end,
-  },
-  {
-    "barrett-ruth/import-cost.nvim",
-    ft = "javascript,javascriptreact,typescript,typescriptreact",
-    build = "sh install.sh yarn",
-    config = function()
-      require("import-cost").setup()
     end,
   },
   { "nvchad/volt", lazy = true },

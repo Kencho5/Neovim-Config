@@ -122,7 +122,10 @@ M.nvdash = {
 -- }
 
 M.term = {
-  winopts = { number = false },
+  winopts = {
+    number = false,
+    signcolumn = "yes:1",  -- Adds tiny left padding
+  },
   sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
   float = {
     row = 0.15,
