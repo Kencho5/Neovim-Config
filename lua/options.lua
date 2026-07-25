@@ -5,6 +5,8 @@ o.cursorlineopt = "both"
 
 vim.wo.relativenumber = false
 vim.wo.wrap = true
+-- pad the line number away from the code a touch
+o.statuscolumn = "%s%=%l  "
 vim.opt.guicursor = "i:block" --  set cursor of insert mode as block.
 vim.cmd "set guicursor=a:blinkon100"
 vim.g.nvim_tree_show_hidden = 1
