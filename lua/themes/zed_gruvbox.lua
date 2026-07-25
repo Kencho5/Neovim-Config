@@ -146,9 +146,54 @@ M.polish_hl = {
     ["@markup.link.url"] = { fg = M.base_30.sun },
   },
 
+  cmp = {
+    -- completion menu, matched to Zed: #393735 popup, #5a524d selected row,
+    -- item text colored by kind, muted #aba289 for the kind/detail column
+    CmpPmenu = { bg = "#393735" },
+    CmpDoc = { bg = "#393735" },
+    CmpDocBorder = { fg = "#4b4541", bg = "#393735" },
+    CmpSel = { bg = "#5a524d", bold = true, link = "" },
+    CmpItemAbbr = { fg = "#e8dcb7" },
+    CmpItemAbbrMatch = { fg = "#b9bb46", bold = true },
+    CmpItemAbbrMatchFuzzy = { fg = "#b9bb46", bold = true },
+    CmpItemAbbrDeprecated = { fg = "#978b7a", strikethrough = true },
+    CmpItemMenu = { fg = "#aba289" },
+    CmpItemKind = { fg = "#aba289" },
+
+    -- kind icons/labels follow the same palette as the syntax theme
+    CmpItemKindKeyword = { fg = M.base_30.red },
+    CmpItemKindSnippet = { fg = M.base_30.red },
+    CmpItemKindFunction = { fg = M.base_30.green },
+    CmpItemKindMethod = { fg = M.base_30.green },
+    CmpItemKindConstructor = { fg = M.base_30.yellow },
+    CmpItemKindClass = { fg = M.base_30.yellow },
+    CmpItemKindInterface = { fg = M.base_30.yellow },
+    CmpItemKindStruct = { fg = M.base_30.yellow },
+    CmpItemKindStructure = { fg = M.base_30.yellow },
+    CmpItemKindEnum = { fg = M.base_30.yellow },
+    CmpItemKindType = { fg = M.base_30.yellow },
+    CmpItemKindModule = { fg = M.base_30.yellow },
+    CmpItemKindVariable = { fg = M.base_30.white },
+    CmpItemKindIdentifier = { fg = M.base_30.white },
+    CmpItemKindField = { fg = M.base_30.white },
+    CmpItemKindProperty = { fg = M.base_30.white },
+    CmpItemKindConstant = { fg = M.base_30.purple },
+    CmpItemKindEnumMember = { fg = M.base_30.purple },
+    CmpItemKindUnit = { fg = M.base_30.purple },
+    CmpItemKindText = { fg = M.base_30.white },
+    CmpItemKindReference = { fg = M.base_30.teal },
+    CmpItemKindColor = { fg = M.base_30.teal },
+    CmpItemKindFile = { fg = M.base_30.teal },
+    CmpItemKindFolder = { fg = M.base_30.teal },
+  },
+
   defaults = {
     Operator = { fg = "#98bf83" },
     Delimiter = { fg = "#a59a86" },
+    Pmenu = { bg = "#393735" },
+    PmenuSel = { bg = "#5a524d", bold = true },
+    PmenuSbar = { bg = "#393735" },
+    PmenuThumb = { bg = "#5a524d" },
     -- base46 links @keyword.import -> Include (base0D, green), and a link
     -- beats any fg we set on the capture, so recolor Include itself
     Include = { fg = M.base_30.red },
@@ -199,8 +244,6 @@ M.polish_hl = {
 
     NormalFloat = { bg = "#2f2e2d" },
     FloatBorder = { fg = "#4b4541", bg = "#2f2e2d" },
-    Pmenu = { bg = "#2f2e2d" },
-    PmenuSel = { bg = "#4b4541" },
     WinSeparator = { fg = "#343130" },
   },
 }

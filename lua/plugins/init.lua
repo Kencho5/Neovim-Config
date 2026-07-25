@@ -45,6 +45,9 @@ return {
   {
     "kyazdani42/nvim-tree.lua",
     opts = {
+      view = {
+        width = 26,
+      },
       filters = {
         git_ignored = false, -- Show git ignored files
       },
