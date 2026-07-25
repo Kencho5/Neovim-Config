@@ -12,13 +12,13 @@ vim.g.nvim_tree_show_hidden = 1
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.component.html", "*.template.html" },
   callback = function()
-    vim.bo.filetype = "htmlangular"
+    vim.bo.filetype = "html"
   end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*/component/**/*.html",
   callback = function()
-    vim.bo.filetype = "htmlangular"
+    vim.bo.filetype = "html"
   end,
 })
